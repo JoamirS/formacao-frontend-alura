@@ -1,0 +1,113 @@
+header {
+    background: rgb(3, 103, 166);
+    padding: 10px 0;
+}
+
+.caixa {
+    position: relative;
+    width: 940px;
+    margin: 0 auto;
+}
+nav {
+    position: absolute;
+    top: 110px;
+    right: 10px;
+}
+
+nav li {
+    display: inline;
+    margin: 0 0 0 20px;
+}
+
+nav a {
+    text-transform: uppercase;
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+    font-family: 'Klavika';
+}
+
+nav a:hover {
+    background-color: green;
+    text-decoration: underline;
+}
+
+.product {
+    width: 940px;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+.product li {
+    display: inline-block;
+    text-align: center;
+    width: 30%;
+    vertical-align: top;
+    margin: 0 1%;
+    padding: 10px 10px;
+    box-sizing: border-box;
+    border-width: 5px;
+    border-style: solid;
+    border-color:  rgb(3, 103, 166);
+    border-radius: 10px;
+}
+
+.product li:hover {
+    border-color: green;
+}
+
+.product li:active {
+    border-color: rgb(242, 5, 159);
+}
+
+.product h2 {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Klavika';
+}
+
+.product li:hover h2 {
+    font-size: 35px;
+}
+
+.productDescribe {
+    font-size: 18px;
+    font-family: "Klavika";
+}
+
+.productPrice {
+    font-family: "Klavika";
+    font-size: 22px;
+    font-weight: normal;
+    margin-top: 10%;
+}
+footer {
+    text-align: center;
+    background: url(images/bg.jpg);
+    color: white;
+    padding: 40px 0;
+    font-family: "Klavika";
+}
+
+main {
+    width: 940px;
+    margin: 0 auto;
+    font-family: Klavika;
+}
+
+form {
+    margin: 40px 0;
+}
+
+form label {
+    display: block;
+    font-size: 20px;
+    margin: 0 0 10px;
+}
+
+form input {
+    display: block;
+    margin: 0 0 20px;
+    padding: 10px 25px;
+    width: 50%;
+}
