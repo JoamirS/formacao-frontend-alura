@@ -3,17 +3,35 @@
     <head>
         <meta charset="UTF-8">
         <title> Barbearia Alura</title>
+
         <link rel="stylesheet" href="reset.css">
-        <link rel="stylesheet" href="home.css">
+        <link rel="stylesheet" href="style.css">
+
     </head>
     <body>
         <header>
-            <h1 class="titulo-centralizado"> Barbearia alura </h1>
-        </header>
+        <div class="caixa">
+            <h1> <img src="images/logo.png" alt="logo da barberia"></h1>
+            <nav>
+                <ul>
+                    <li> 
+                        <a href="home.html"> Home </a> 
+                    </li>
+                    <li> 
+                        <a href="produto.html"> Produtos </a> 
+                    </li>
+                    <li> 
+                        <a href="contato.html"> Contato </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-        <img id="banner" src="banner.jpg">
+        <img class="banner" src="banner.jpg">
 
-        <div class="principal">
+    <main>
+        <section class="principal">
             <h2 class="titulo-centralizado">Sobre a Barbearia Alura</h2>
 
             <p>Localizada no coração da cidade a <strong>Barbearia Alura</strong> traz para o mercado o que há de melhor para o seu cabelo e barba. 
@@ -23,10 +41,10 @@
 
             <p>Oferecemos profissionais experientes e antenados às mudanças no mundo da moda. 
             O atendimento possui padrão de excelência e agilidade, garantindo qualidade e satisfação dos nossos clientes.</p>
-        </div>
+        </section>
 
         <div class="beneficios">
-            <h2 class="titulo-centralizado"> Beneficios </h2>
+            <h2 class="titulo-principal"> Beneficios </h2>
 
             <ul>
                 <li class="itens">Atendimento ao cliente</li>
@@ -37,5 +55,11 @@
 
             <img src="beneficios.jpg" class="imagem_beneficios">
         </div>
+
+    </main>
+        <footer>
+            <img src="images/logo-branco.png">
+            <p> &copy; Copyright Barbearia Alura – 2020</p>
+        </footer>
     </body>
 </html>
