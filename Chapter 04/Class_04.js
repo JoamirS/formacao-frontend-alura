@@ -1,7 +1,7 @@
 console.log("Atribuição de variáveis");
 
 const idade = 29;
-let primeiroNome = "Joamir";
+const primeiroNome = "Joamir";
 const sobrenome = "Moraes";
 
 /*
