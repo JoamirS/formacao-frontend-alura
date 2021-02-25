@@ -18,5 +18,5 @@ if (idadeComprador >= 18) {
 } else if (estaAcompanhado) {
     console.log("Comprador está acompanhado");
 } else {
-    console.log("Você não está apto a realizar compras por ser menos de idade.")
+    console.log("Você não está apto a realizar compras por ser menos de idade.");
 }
