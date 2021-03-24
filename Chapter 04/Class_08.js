@@ -9,26 +9,22 @@ class Cliente {
 class ContaCorrente{
     constructor(agencia, saldo){
         this.agencia = agencia;
-        this.#saldo = saldo;
+        this.saldo = saldo;
     }
 
     sacar(valor){
-        if(this.#saldo >= valor){
-            this.#saldo -= valor;
-            console.log("Valor sacado com sucesso.\n O valor sacado foi: " + valor);
-            console.log("Seu saldo: " + this.#saldo);
+        if(this.saldo >= valor){
+            this.saldo -= valor;
+            return valor;
         } else {
-            console.log("Você não possui saldo suficiente para este saque.");
         }
     }
 
     depositar(valor){
-        if (valor > 0 ){
-            this.#saldo += valor;
-        } else {
-            console.log("Valor insuficiente")
+        if (valor <= 0 ) {
+            return;
         }
-            
+        this.saldo += valor;
     }
 }
 
