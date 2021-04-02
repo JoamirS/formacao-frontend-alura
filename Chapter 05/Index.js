@@ -16,3 +16,4 @@ contaDoJoamir.transferir(valorParaTrasferir, contaDoBruce);
 
 console.log(contaDoJoamir);
 console.log(contaDoBruce);
+console.log("O total de contas é " + ContaCorrente.totalDeContas);
