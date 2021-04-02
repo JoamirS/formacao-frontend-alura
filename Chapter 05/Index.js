@@ -7,7 +7,7 @@ clienteUm.CPF = 29765158327;
 
 const contaDoJoamir = new ContaCorrente();
 contaDoJoamir.agencia = 1001;
-contaDoJoamir.saldo = 0;
+contaDoJoamir._saldo = 0;
 contaDoJoamir.cliente = clienteUm;
 
 const ClienteDois = new Cliente();
@@ -16,13 +16,14 @@ ClienteDois.CPF = 80166205311;
 
 const contaDoBruce = new ContaCorrente();
 contaDoBruce.agencia = 2002;
-contaDoBruce.saldo = 0;
+contaDoBruce._saldo = 0;
 contaDoBruce.cliente = ClienteDois;
 
 contaDoJoamir.depositar(100);
 contaDoJoamir.sacar(10);
 
-contaDoJoamir.transferir(10, contaDoBruce);
+let valorParaTrasferir = 10;
+contaDoJoamir.transferir(valorParaTrasferir, contaDoBruce);
 
 console.log(contaDoJoamir);
 console.log(contaDoBruce);
