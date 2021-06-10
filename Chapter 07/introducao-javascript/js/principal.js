@@ -41,6 +41,10 @@ var botaoAdicionar = document.querySelector("#adicionar-paciente");
 
 botaoAdicionar.addEventListener("click", function(event){
     event.preventDefault();
-    console.log("Oi eu sou um botao");
+
+    var form = document.querySelector("#formulario-adiciona");
+    console.log(form.altura.value);
+    console.log(form.peso.value);
+
 }
 )
