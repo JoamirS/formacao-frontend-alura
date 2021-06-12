@@ -43,8 +43,35 @@ botaoAdicionar.addEventListener("click", function(event){
     event.preventDefault();
 
     var form = document.querySelector("#formulario-adiciona");
-    console.log(form.altura.value);
-    console.log(form.peso.value);
+
+    alturaForm = form.altura.value;
+    pesoForm = form.peso.value;
+    gorduraForm = form.gordura.value;
+    imcForm = form.imc.value;
+    nomeForm = form.nome.value;
+
+    var pacienteTr = document.createElement("tr");
+
+    var nomeTd = document.createElement("td");
+    var pesoTd = document.createElement("td");
+    var alturaTd = document.createElement("td");
+    var gorduraTd = document.createElement("td");
+    var imcTd = document.createElement("td");
+
+    nomeTd.textContent = nomeForm;
+    pesoTd.textContent = pesoForm;
+    alturaTd.textContent = altura;
+    gorduraTd.textContent = gorduraForm;
+    imcTd.textContent = imcForm;
+
+    pacienteTr.appendChild(nomeTd);
+    pacienteTr.appendChild(pesoTd);
+    pacienteTr.appendChild(alturaTd);
+    pacienteTr.appendChild(gorduraTd);
+    pacienteTr.appendChild(imcTd);
+
+    var tabela = document.querySelector("#tabela-pacientes");
+    tabela.appendChild(pacienteTr);
 
 }
 )
