@@ -21,12 +21,14 @@ botaoAdicionar.addEventListener("click", function(event){
     nomeTd.textContent = nomeForm;
     pesoTd.textContent = pesoForm;
     alturaTd.textContent = alturaForm;
-    gorduraTd.textContent = gorduraForm;     
+    gorduraTd.textContent = gorduraForm;
+    imcTd.textContent = calculaImc(peso, altura);
 
     pacienteTr.appendChild(nomeTd);
     pacienteTr.appendChild(pesoTd);
     pacienteTr.appendChild(alturaTd);
     pacienteTr.appendChild(gorduraTd);
+    pacienteTr.appendChild(imcTd);
 
     var tabela = document.querySelector("#tabela-pacientes");
 
