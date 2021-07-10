@@ -33,7 +33,7 @@ for (var i = 0; i < pacientesLista.length; i++) {
 
     if (alturaEvalida && pesoEValido) {
         var imc = calculaImc(peso, altura)
-        tdImc.textContent = imc.toFixed(2);
+        tdImc.textContent = calculaImc(peso, altura);
     }
 }
 

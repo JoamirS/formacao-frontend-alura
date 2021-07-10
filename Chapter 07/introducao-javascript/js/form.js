@@ -7,29 +7,13 @@ botaoAdicionar.addEventListener("click", function(event){
 
     var paciente = obtermPacienteDoFormulario(form);
 
-    var pacienteTr = document.createElement("tr");
-
-    var nomeTd = document.createElement("td");
-    var pesoTd = document.createElement("td");
-    var alturaTd = document.createElement("td");
-    var gorduraTd = document.createElement("td");
-    var imcTd = document.createElement("td");
-
-    nomeTd.textContent = nomeForm;
-    pesoTd.textContent = pesoForm;
-    alturaTd.textContent = alturaForm;
-    gorduraTd.textContent = gorduraForm;
-    imcTd.textContent = calculaImc(peso, altura);
-
-    pacienteTr.appendChild(nomeTd);
-    pacienteTr.appendChild(pesoTd);
-    pacienteTr.appendChild(alturaTd);
-    pacienteTr.appendChild(gorduraTd);
-    pacienteTr.appendChild(imcTd);
+    var pacienteTr = montaTr(paciente);
 
     var tabela = document.querySelector("#tabela-pacientes");
 
     tabela.appendChild(pacienteTr);
+
+    form.reset();
 });
 
 function obtermPacienteDoFormulario(form){
@@ -43,4 +27,37 @@ function obtermPacienteDoFormulario(form){
     }
 
     return paciente;
+}
+
+function montaTr(paciente){
+    var pacienteTr = document.createElement("tr");
+    pacienteTr.classList.add("paciente");
+
+    var nomeTd = montaTd(paciente.nome, "info-nome");
+    var pesoTd = montaTd(paciente.peso, "info-peso");
+    var alturaTd = montaTd(paciente.altura, "info-altura");
+    var gorduraTd = montaTd(paciente.gordura, "info-gordura");
+    var imcTd = montaTd(paciente.imc, "info-peso");
+
+    pacienteTr.appendChild(nomeTd);
+    pacienteTr.appendChild(pesoTd);
+    pacienteTr.appendChild(alturaTd);
+    pacienteTr.appendChild(gorduraTd);
+    pacienteTr.appendChild(imcTd);
+
+    return pacienteTr;
+}
+
+function montaTd(dado, classe){
+    var td = document.createElement("td");
+    td.textContent = dado;
+    td.classList.add(classe);
+    return td;
+}
+
+function validaPaciente(paciente){
+    if (paciente.peso < 2.0 && paciente.altura >= 0){
+        return true;
+        
+    }
 }
