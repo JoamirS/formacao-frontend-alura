@@ -1,6 +1,6 @@
 var botaoAdicionar = document.querySelector("#adicionar-paciente");
 
-botaoAdicionar.addEventListener("click", function(event){
+botaoAdicionar.addEventListener("click", function (event) {
     event.preventDefault();
 
     var form = document.querySelector("#formulario-adiciona");
@@ -9,6 +9,11 @@ botaoAdicionar.addEventListener("click", function(event){
 
     var pacienteTr = montaTr(paciente);
 
+    if (!validaPaciente(paciente)) {
+        console.log("Paciente inválido");
+        return;
+    };
+
     var tabela = document.querySelector("#tabela-pacientes");
 
     tabela.appendChild(pacienteTr);
@@ -16,7 +21,7 @@ botaoAdicionar.addEventListener("click", function(event){
     form.reset();
 });
 
-function obtermPacienteDoFormulario(form){
+function obtermPacienteDoFormulario(form) {
 
     var paciente = {
         nome: form.nome.value,
@@ -29,7 +34,7 @@ function obtermPacienteDoFormulario(form){
     return paciente;
 }
 
-function montaTr(paciente){
+function montaTr(paciente) {
     var pacienteTr = document.createElement("tr");
     pacienteTr.classList.add("paciente");
 
@@ -48,16 +53,30 @@ function montaTr(paciente){
     return pacienteTr;
 }
 
-function montaTd(dado, classe){
+function montaTd(dado, classe) {
     var td = document.createElement("td");
     td.textContent = dado;
     td.classList.add(classe);
     return td;
 }
 
-function validaPaciente(paciente){
-    if (paciente.peso < 2.0 && paciente.altura >= 0){
-        return true;
-        
+function validaPaciente(paciente) {
+
+    var pesoEValido = 0;
+    var alturaEvalida = true;
+
+    if (validaPeso(paciente.peso)) {
+        pesoEValido = true;
+    } else {
+        erroPeso = 1;
+        mensagensDeErro(pesoEValido, erroPeso);
     }
 }
+
+function mensagensDeErro(boleano, valorErro) {
+    switch (codigoErro = boleano + valorErro) {
+        case 1:
+            return console.log("Erro no peso");
+    }
+}
+
