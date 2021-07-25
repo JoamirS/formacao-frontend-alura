@@ -9,11 +9,24 @@ botaoAdicionar.addEventListener("click", function (event) {
 
     var pacienteTr = montaTr(paciente);
 
-    if (validaPaciente(paciente) ) {
-        console.log("Paciente teste inválido");
-        return;
-    };
+    var pacienteEmValidacao = validaPaciente(paciente);
 
+    if (pacienteEmValidacao == 1) {
+        var selecionaMensagemErro = document.querySelector("#mensagem-erro");
+        var tipoMensagemErro = mensagemErro(1);
+        selecionaMensagemErro.textContent = tipoMensagemErro;
+        return;
+    } else if (pacienteEmValidacao == 2) {
+        var selecionaMensagemErro = document.querySelector("#mensagem-erro");
+        var tipoMensagemErro = mensagemErro(2);
+        selecionaMensagemErro.textContent = tipoMensagemErro;
+        return;
+    } else if (pacienteEmValidacao == 3) {
+        var selecionaMensagemErro = document.querySelector("#mensagem-erro");
+        var tipoMensagemErro = mensagemErro(3);
+        selecionaMensagemErro.textContent = tipoMensagemErro;
+        return;
+    }
     var tabela = document.querySelector("#tabela-pacientes");
 
     tabela.appendChild(pacienteTr);
@@ -61,29 +74,35 @@ function montaTd(dado, classe) {
 }
 
 function validaPaciente(paciente) {
+    codigoDoErro = 0
     erroPeso = validaPeso(paciente.peso);
 
-    if (erroPeso == true){
-        
+    if (erroPeso == false) {
+        codigoDoErro += 1;
     }
+
     erroAltura = validaAltura(paciente.altura);
 
-    if (erroPeso == erroAltura) {
-        return true;
-    } else {
-        return false;
+    if (erroAltura == false) {
+        codigoDoErro += 2;
     }
+
+    return codigoDoErro;
 }
 
-function mensagemErro(codigo){
+function mensagemErro(codigo) {
 
-    if (codigo == 0){
-        var spanErro = window.document.querySelector("#mensagem-erro");
-        spanErro.textContent = "Peso inválido";
+    if (codigo == 1) {
+        var spanErro = "Peso inválido";
+        return spanErro;
     }
 
-    if (codigo == 1){
-        var spanErro = window.document.querySelector("#mensagem-erro");
-        spanErro.textContent = "Altura inválida";
+    if (codigo == 2) {
+        var spanErro = "Altura inválida";
+        return spanErro;
+    }
+
+    if (codigo == 3) {
+        var spanErro = "Altura e o peso são inválidos";
     }
 }
