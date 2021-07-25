@@ -9,23 +9,23 @@ botaoAdicionar.addEventListener("click", function (event) {
 
     var pacienteTr = montaTr(paciente);
 
-    var pacienteEmValidacao = validaPaciente(paciente);
+    var pacienteEmValidacaoNulo = validaPacienteNull(paciente);
 
-    console.log(pacienteEmValidacao);
+    var pacienteEmValidacaoValor = validaPacienteValor(paciente);
 
-    if (pacienteEmValidacao == 1) {
+    if (pacienteEmValidacaoValor == 1) {
         var selecionaMensagemErro = document.querySelector("#mensagem-erro");
-        var tipoMensagemErro = mensagemErro(1);
+        var tipoMensagemErro = mensagemErroValor(1);
         selecionaMensagemErro.textContent = tipoMensagemErro;
         return;
-    } else if (pacienteEmValidacao == 2) {
+    } else if (pacienteEmValidacaoValor == 2) {
         var selecionaMensagemErro = document.querySelector("#mensagem-erro");
-        var tipoMensagemErro = mensagemErro(2);
+        var tipoMensagemErro = mensagemErroValor(2);
         selecionaMensagemErro.textContent = tipoMensagemErro;
         return;
-    } else if (pacienteEmValidacao == 3) {
+    } else if (pacienteEmValidacaoValor == 3) {
         var selecionaMensagemErro = document.querySelector("#mensagem-erro");
-        var tipoMensagemErro = mensagemErro(3);
+        var tipoMensagemErro = mensagemErroValor(3);
         selecionaMensagemErro.textContent = tipoMensagemErro;
         return;
     }
@@ -75,18 +75,18 @@ function montaTd(dado, classe) {
     return td;
 }
 
-function validaPaciente(paciente) {
+function validaPacienteValor(paciente) {
     codigoDoErro = 0
     erroPeso = validaPeso(paciente.peso);
 
     if (erroPeso == false) {
-        codigoDoErro += 1;
+        codigoDoErro = 1;
     }
 
     erroAltura = validaAltura(paciente.altura);
 
     if (erroAltura == false) {
-        codigoDoErro += 2;
+        codigoDoErro = 2;
     }
 
     if (erroPeso == false && erroAltura == false) {
@@ -95,7 +95,12 @@ function validaPaciente(paciente) {
     return codigoDoErro;
 }
 
-function mensagemErro(codigo) {
+function validaPacienteNull(paciente){
+    
+}
+
+
+function mensagemErroValor(codigo) {
 
     if (codigo == 1) {
         var spanErro = "Peso inválido";
@@ -112,3 +117,4 @@ function mensagemErro(codigo) {
         return spanErro;
     }
 }
+
