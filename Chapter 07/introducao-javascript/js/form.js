@@ -11,6 +11,8 @@ botaoAdicionar.addEventListener("click", function (event) {
 
     var pacienteEmValidacao = validaPaciente(paciente);
 
+    console.log(pacienteEmValidacao);
+
     if (pacienteEmValidacao == 1) {
         var selecionaMensagemErro = document.querySelector("#mensagem-erro");
         var tipoMensagemErro = mensagemErro(1);
@@ -87,6 +89,9 @@ function validaPaciente(paciente) {
         codigoDoErro += 2;
     }
 
+    if (erroPeso == false && erroAltura == false) {
+        codigoDoErro = 3;
+    }
     return codigoDoErro;
 }
 
@@ -103,6 +108,7 @@ function mensagemErro(codigo) {
     }
 
     if (codigo == 3) {
-        var spanErro = "Altura e o peso são inválidos";
+        var spanErro = "Altura e peso são inválidos";
+        return spanErro;
     }
 }
