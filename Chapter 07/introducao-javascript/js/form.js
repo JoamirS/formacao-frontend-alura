@@ -12,6 +12,9 @@ botaoAdicionar.addEventListener("click", function (event) {
     var pacienteEmValidacaoNulo = validaPacienteNull(paciente);
     console.log(pacienteEmValidacaoNulo);
 
+    // Criar uma função monta lista em branco, para que toda vez que um campo fique
+    // em branco, criar uma li em HTML, para que fique um embaixo do outro.
+
     var selecionaMensagemErro = document.querySelector("#mensagem-erro");
     selecionaMensagemErro.textContent = pacienteEmValidacaoNulo;
     
@@ -146,4 +149,13 @@ function mensagemErroValor(codigo) {
         var spanErro = "Altura e peso são inválidos";
         return spanErro;
     }
+}
+
+function montaUl(lista){
+    var ulPai = document.createElement('ul');
+
+    
+
+
+
 }
