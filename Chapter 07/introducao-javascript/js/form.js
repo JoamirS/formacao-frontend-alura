@@ -10,6 +10,17 @@ botaoAdicionar.addEventListener("click", function (event) {
     var pacienteTr = montaTr(paciente);
 
     var pacienteEmValidacaoNulo = validaPacienteNull(paciente);
+    console.log(pacienteEmValidacaoNulo);
+
+    var selecionaMensagemErro = document.querySelector("#mensagem-erro");
+    selecionaMensagemErro.textContent = pacienteEmValidacaoNulo;
+    
+    for (var i = 0; i < selecionaMensagemErro.length; i++){
+        
+        selecionaMensagemErro.textContent = pacienteEmValidacaoNulo;
+        console.log(selecionaMensagemErro[i] + '!');
+        return;
+    }
 
     var pacienteEmValidacaoValor = validaPacienteValor(paciente);
 
@@ -95,8 +106,27 @@ function validaPacienteValor(paciente) {
     return codigoDoErro;
 }
 
-function validaPacienteNull(paciente){
-    
+function validaPacienteNull(paciente) {
+    listaComErros = [];
+
+    if (paciente.nome.length == 0) {
+        listaComErros.push('Nome não pode ser em branco.');
+    }
+
+    if (paciente.peso.length == 0) {
+        listaComErros.push('Peso não pode ser em branco.');
+    }
+
+    if (paciente.altura.length == 0) {
+        listaComErros.push('Altura não pode ser em branco.');
+    }
+
+    if (paciente.gordura.length == 0) {
+        listaComErros.push('Gordura não pode ser em branco.');
+    }
+
+    return listaComErros;
+
 }
 
 
@@ -117,4 +147,3 @@ function mensagemErroValor(codigo) {
         return spanErro;
     }
 }
-
