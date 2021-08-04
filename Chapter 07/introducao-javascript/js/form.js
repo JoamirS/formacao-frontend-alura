@@ -12,18 +12,23 @@ botaoAdicionar.addEventListener("click", function (event) {
     var pacienteEmValidacaoNulo = validaPacienteNull(paciente);
     console.log(pacienteEmValidacaoNulo);
 
-    // Criar uma função monta lista em branco, para que toda vez que um campo fique
-    // em branco, criar uma li em HTML, para que fique um embaixo do outro.
+    if (pacienteEmValidacaoNulo.length > 0) {
+        var selecionaMensagemErro = document.querySelector("#mensagem-erro");
+        var criaUl = criaUlBranco();
 
-    var selecionaMensagemErro = document.querySelector("#mensagem-erro");
-    selecionaMensagemErro.textContent = pacienteEmValidacaoNulo;
-    
-    for (var i = 0; i < selecionaMensagemErro.length; i++){
+        for (i = 0; i < pacienteEmValidacaoNulo.length; i++){
+            var itemLi = criaLiBranco(pacienteEmValidacaoNulo[i]);
+            criaUl.appendChild(itemLi);
+            console.log(itemLi);
+        }
+        selecionaMensagemErro.innerHTML = criaUl;
         
-        selecionaMensagemErro.textContent = pacienteEmValidacaoNulo;
-        console.log(selecionaMensagemErro[i] + '!');
         return;
     }
+
+
+    // Criar uma função monta lista em branco, para que toda vez que um campo fique
+    // em branco, criar uma li em HTML, para que fique um embaixo do outro.
 
     var pacienteEmValidacaoValor = validaPacienteValor(paciente);
 
@@ -49,6 +54,17 @@ botaoAdicionar.addEventListener("click", function (event) {
 
     form.reset();
 });
+
+function criaLiBranco(dado){
+    var li = document.createElement("li");
+    li.textContent = dado;
+    return li;
+}
+
+function criaUlBranco(){
+    var ul = document.createElement("ul");
+    return ul;
+}
 
 function obtermPacienteDoFormulario(form) {
 
@@ -149,13 +165,4 @@ function mensagemErroValor(codigo) {
         var spanErro = "Altura e peso são inválidos";
         return spanErro;
     }
-}
-
-function montaUl(lista){
-    var ulPai = document.createElement('ul');
-
-    
-
-
-
 }
