@@ -26,8 +26,6 @@ botaoAdicionar.addEventListener("click", function (event) {
         selecionaMensagemErro.appendChild(UlListaDeErros);
 
     }
-    // Criar uma função monta lista em branco, para que toda vez que um campo fique
-    // em branco, criar uma li em HTML, para que fique um embaixo do outro.
 
     var pacienteEmValidacaoValor = validaPacienteValor(paciente);
 
