@@ -9,24 +9,23 @@ botaoAdicionar.addEventListener("click", function (event) {
 
     var pacienteTr = montaTr(paciente);
 
-    var pacienteEmValidacaoNulo = validaPacienteNull(paciente);
-    console.log(pacienteEmValidacaoNulo);
+    var listaComErrosChecagem = checaPacienteNuloLista(paciente);
 
-    if (pacienteEmValidacaoNulo.length > 0) {
-        var selecionaMensagemErro = document.querySelector("#mensagem-erro");
-        var criaUl = criaUlBranco();
+    if (listaComErrosChecagem.length > 0) {
+        var UlListaDeErros = document.createElement("ul");
+        UlListaDeErros.classList.add("Lista-de-erros");
+        
 
-        for (i = 0; i < pacienteEmValidacaoNulo.length; i++){
-            var itemLi = criaLiBranco(pacienteEmValidacaoNulo[i]);
-            criaUl.appendChild(itemLi);
+        for (i = 0; i < listaComErrosChecagem.length; i++){
+            var itemLi = criaLiBranco(listaComErrosChecagem[i]);
+            UlListaDeErros.appendChild(itemLi);
             console.log(itemLi);
         }
-        selecionaMensagemErro.innerHTML = criaUl;
-        
-        return;
+
+        var selecionaMensagemErro = document.querySelector("#mensagem-erro");
+        selecionaMensagemErro.appendChild(UlListaDeErros);
+
     }
-
-
     // Criar uma função monta lista em branco, para que toda vez que um campo fique
     // em branco, criar uma li em HTML, para que fique um embaixo do outro.
 
@@ -55,15 +54,10 @@ botaoAdicionar.addEventListener("click", function (event) {
     form.reset();
 });
 
-function criaLiBranco(dado){
+function criaLiBranco(dado) {
     var li = document.createElement("li");
     li.textContent = dado;
     return li;
-}
-
-function criaUlBranco(){
-    var ul = document.createElement("ul");
-    return ul;
 }
 
 function obtermPacienteDoFormulario(form) {
@@ -125,7 +119,7 @@ function validaPacienteValor(paciente) {
     return codigoDoErro;
 }
 
-function validaPacienteNull(paciente) {
+function checaPacienteNuloLista(paciente) {
     listaComErros = [];
 
     if (paciente.nome.length == 0) {
